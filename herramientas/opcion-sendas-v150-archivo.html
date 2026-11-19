@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Sendas del Neuquén</title>
+<meta name="description" content="Propuesta de pantalla «Sendas del Neuquén» para validar con el cliente (borrador, no integrada al recorrido de la Rendición de cuentas).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Sendas del Neuquén · propuesta de pantalla para validar con el cliente. Página aparte (no forma parte de las pantallas del recorrido).
+   Armada a partir del JPG de la propuesta con la escala del informe (v150): mismos tonos, pesos y tamaños que las pantallas ya hechas
+   (título 700 / −0,035 em como .axis-name b; rótulos como .tag y .ps-kick; cifras 700 como .num; bajadas .lbl 500; bloques sobre crema como .card.light; chips como .chip.lg).
+   Lienzo de 2160 × 1080 (la proyección) que se ajusta a la ventana; debajo de 900 px de ancho pasa a una columna. */
+:root{
+  --bg:#06202A; --deep:#031820; --navy:#03394D; --cream:#FDF3E0; --fg-dim:#A8B9BA;
+  --coral:#EB6458; --coral-ink:#B3382D; --green:#8AB86A; --green-ink:#3E6F2C; --teal:#05AEB5; --teal-ink:#08777F;
+  --hair:rgba(3,57,77,.2); --dim:#4F6B76;
+  --text:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--deep);color:var(--cream);font:500 16px/1.5 var(--text);letter-spacing:-.025em;-webkit-font-smoothing:antialiased;overflow:hidden}
+h1,h2,p,ul{margin:0;padding:0}
+ul{list-style:none}
+
+/* fondo: el mismo velo oscuro de las pantallas con foto (.pasos .stage::after) sobre el azul profundo */
+.fondo{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(3,24,32,.6) 0,rgba(3,24,32,.24) 24%,rgba(3,24,32,.24) 64%,rgba(3,24,32,.56) 100%),linear-gradient(90deg,rgba(3,24,32,.7) 0,rgba(3,24,32,.48) 34%,rgba(3,24,32,.52) 100%),radial-gradient(120% 90% at 78% 8%,#0B4A5C 0,#06202A 58%,#031820 100%)}
+.slide{position:absolute;z-index:1;left:0;top:0;width:2160px;height:1080px;transform-origin:0 0}
+.head{position:absolute;left:96px;top:60px;right:96px;text-shadow:0 2px 26px rgba(3,24,32,.55)}
+.kick{display:block;font:700 22px/1.2 var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.9}
+.title{margin-top:18px;font:700 88px/1 var(--text);letter-spacing:-.035em;text-wrap:balance;max-width:none}
+.title .l{font-weight:500;color:rgba(253,243,224,.92)}
+.title .g{color:var(--green)}
+
+.card{position:absolute;left:96px;top:250px;width:1968px;height:780px;padding:34px 0 30px 44px;background:var(--cream);color:var(--navy);
+  border-radius:30px 30px 30px 0;display:grid;grid-template-columns:640px repeat(3,minmax(0,1fr));grid-template-rows:1fr auto}
+/* bloque del mapa */
+.mapa{grid-row:1;position:relative;padding-right:12px}
+.legend{position:absolute;left:0;top:6px;display:grid;gap:20px;z-index:2}
+.legend li{display:grid;grid-template-columns:40px auto;gap:14px;align-items:center}
+.legend .pin{width:40px;height:50px}
+.legend b{display:block;font-weight:800;font-size:28px;line-height:1.1;letter-spacing:-.025em}
+.legend span{display:block;margin-top:2px;font-weight:500;font-size:20px;line-height:1.2;letter-spacing:-.015em;color:var(--dim)}
+.map{position:absolute;left:140px;top:2px;height:640px;width:auto}
+.total{position:absolute;left:400px;bottom:6px;z-index:2}
+.total b{display:block;font-weight:700;font-size:104px;line-height:.8;letter-spacing:-.045em;color:var(--navy)}
+.total span{display:block;margin-top:12px;font-weight:500;font-size:24px;line-height:1.25;letter-spacing:-.015em;color:var(--dim)}
+
+/* columnas: rótulo como .tag, cifra como .num, bajada como .lbl */
+.col{padding:0 36px;border-left:1px solid var(--hair);display:flex;flex-direction:column;min-width:0}
+.col h2{display:flex;align-items:center;gap:10px;font:800 22px/1.2 var(--text);letter-spacing:.1em;text-transform:uppercase}
+.col h2::before{content:"";flex:none;width:22px;height:1px;background:currentColor}
+.col.sendas h2{color:var(--green-ink)} .col.refugios h2{color:var(--coral-ink)} .col.miradores h2{color:var(--teal-ink)}
+.big{margin-top:20px;font-weight:700;font-size:104px;line-height:.8;letter-spacing:-.045em;color:var(--navy)}
+.desc{margin-top:14px;font-weight:500;font-size:24px;line-height:1.25;letter-spacing:-.015em;color:var(--dim);min-height:60px}
+.rows{margin-top:12px;margin-bottom:14px;padding-top:10px;border-top:1px solid var(--hair)}
+.row{display:grid;grid-template-columns:1fr auto;align-items:baseline;font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-.02em;padding-top:2px}
+.row b{font-weight:700;font-variant-numeric:tabular-nums}
+.bar{grid-column:1/3;display:block;height:10px;margin:5px 0 7px;border-radius:999px;background:var(--hair);overflow:hidden}
+.bar u{display:block;height:100%;width:var(--w);background:var(--c);border-radius:inherit;transform-origin:0 50%;text-decoration:none}
+.col.sendas{--c:var(--green)} .col.refugios{--c:var(--coral)} .col.miradores{--c:var(--teal)}
+.row.off{color:var(--dim);opacity:.7}
+.row.off b{font-weight:500}
+.note{margin-top:auto;padding:2px 0 2px 18px;border-left:4px solid var(--c);font-weight:600;font-size:24px;line-height:1.25;letter-spacing:-.015em;color:var(--navy)}
+
+.incl{grid-column:1/-1;display:flex;align-items:center;gap:24px;margin:12px 44px 0 0;padding:16px 0 0;border-top:1px solid var(--hair)}
+.incl h2{font:800 20px/1.2 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--green-ink);flex:none}
+.incl ul{display:flex;flex-wrap:wrap;gap:10px 12px}
+.incl li{font:700 20px/1 var(--text);letter-spacing:-.005em;padding:11px 20px;border:1px solid currentColor;border-radius:999px;color:var(--navy);white-space:nowrap}
+
+/* entrada: las cifras suben y, al terminar, las barras de cada bloque se van completando una tras otra (el número de cada fila sube con su barra) */
+.js .bar u{transform:scaleX(0);transition:transform .95s cubic-bezier(.22,.7,.2,1) var(--d,0s)}
+.js.on .bar u{transform:none}
+.js .col{opacity:0;transform:translateY(14px);transition:opacity .6s ease var(--cd,0s),transform .7s cubic-bezier(.2,.7,.2,1) var(--cd,0s)}
+.js.on .col{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .bar u{transform:none;transition:none}.js .col{opacity:1;transform:none;transition:none}}
+
+/* menos de 900 px: una sola columna (sin lienzo escalado), con los tamaños de las tarjetas del informe en celular */
+@media (max-width:899px){
+  html,body{height:auto}
+  body{overflow:auto}
+  .fondo{position:fixed}
+  .slide{position:relative;width:auto;height:auto;transform:none!important;padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px))}
+  .head{position:static}
+  .kick{font-size:13px}
+  .title{font-size:clamp(32px,10.4vw,52px);line-height:1;margin-top:12px}
+  .card{position:static;width:auto;height:auto;margin-top:22px;padding:22px 18px 24px;display:flex;flex-direction:column;gap:22px}
+  .mapa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px 12px;align-items:end;padding:0}
+  .legend,.map,.total{position:static}
+  .legend{align-self:start;gap:12px}
+  .legend b{font-size:17px} .legend span{font-size:13px}
+  .legend .pin{width:28px;height:35px} .legend li{grid-template-columns:28px auto;gap:10px}
+  .map{grid-column:2;grid-row:1/3;width:100%;height:auto;max-height:430px;justify-self:end}
+  .total b{font-size:62px} .total span{font-size:15px}
+  .col{padding:18px 0 0;border-left:0;border-top:1px solid var(--hair)}
+  .col h2{font-size:15px}
+  .big{font-size:72px;margin-top:14px}
+  .desc{font-size:17px;min-height:0}
+  .row{font-size:17px}
+  .note{font-size:16px}
+  .incl{margin:0;padding:18px 0 0;flex-direction:column;align-items:flex-start;gap:10px}
+  .incl h2{font-size:14px}
+  .incl li{font-size:15px;padding:9px 16px;white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="fondo" aria-hidden="true"></div>
+<main class="slide" id="slide">
+  <header class="head">
+    <span class="kick">Sendas del Neuquén</span>
+    <h1 class="title">Una provincia <span class="l">que se recorre</span> <span class="g">caminando.</span></h1>
+  </header>
+
+  <div class="card">
+    <div class="mapa">
+      <ul class="legend" aria-label="Referencias del mapa">
+        <li><svg class="pin" viewBox="0 0 40 50" aria-hidden="true"><path d="M20 2C10.6 2 4 8.8 4 17.4 4 29 20 47 20 47s16-18 16-29.6C36 8.8 29.4 2 20 2z" fill="#03394D"/><text x="20" y="24" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="16" fill="#FDF3E0">n</text></svg><div><b>Sendas</b><span>Recorridos por región</span></div></li>
+        <li><svg class="pin" viewBox="0 0 40 50" aria-hidden="true"><path d="M20 2C10.6 2 4 8.8 4 17.4 4 29 20 47 20 47s16-18 16-29.6C36 8.8 29.4 2 20 2z" fill="#EB6458"/><path d="M11.5 21.5 20 13.5l8.5 8h-2.6v7h-4.6v-4.6h-2.6v4.6h-4.6v-7z" fill="#FDF3E0"/></svg><div><b>Refugio</b><span>Un pin por refugio</span></div></li>
+        <li><svg class="pin" viewBox="0 0 40 50" aria-hidden="true"><path d="M20 2C10.6 2 4 8.8 4 17.4 4 29 20 47 20 47s16-18 16-29.6C36 8.8 29.4 2 20 2z" fill="#05AEB5"/><path d="M12.5 15.5h3l1.4-2h6.2l1.4 2h3a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H12.5A1.5 1.5 0 0 1 11 26.5V17a1.5 1.5 0 0 1 1.5-1.5z" fill="#FDF3E0"/><circle cx="20" cy="21.7" r="3.6" fill="#05AEB5"/></svg><div><b>Mirador</b><span>Un pin por mirador</span></div></li>
+      </ul>
+      <img class="map" src="img/sendas/mapa-v1.webp" width="470" height="710" alt="Mapa del Neuquén por regiones con los recorridos (Lagos del Sur 34, Alto Neuquén 26, Pehuén 19, Confluencia 10, Vaca Muerta 8, Limay 3), los refugios y los miradores">
+      <p class="total"><b data-n="44">44</b><span>puntos de interés en 6&nbsp;regiones</span></p>
+    </div>
+      <section class="col sendas" style="--cd:0.15s" aria-labelledby="h-sendas">
+        <h2 id="h-sendas">Sendas</h2>
+        <p class="big" data-n="100" data-d="0.45">100</p>
+        <p class="desc">recorridos entre las regiones de la provincia</p>
+        <ul class="rows">
+          <li class="row"><span>Lagos del Sur</span><b data-n="34" data-d="1.35">34</b><i class="bar"><u style="--w:100.0%;--d:1.35s"></u></i></li>
+          <li class="row"><span>Alto Neuquén</span><b data-n="26" data-d="1.52">26</b><i class="bar"><u style="--w:76.5%;--d:1.52s"></u></i></li>
+          <li class="row"><span>Pehuén</span><b data-n="19" data-d="1.69">19</b><i class="bar"><u style="--w:55.9%;--d:1.69s"></u></i></li>
+          <li class="row"><span>Confluencia</span><b data-n="10" data-d="1.86">10</b><i class="bar"><u style="--w:29.4%;--d:1.86s"></u></i></li>
+          <li class="row"><span>Vaca Muerta</span><b data-n="8" data-d="2.03">8</b><i class="bar"><u style="--w:23.5%;--d:2.03s"></u></i></li>
+          <li class="row"><span>Limay</span><b data-n="3" data-d="2.20">3</b><i class="bar"><u style="--w:8.8%;--d:2.20s"></u></i></li>
+        </ul>
+        <p class="note">Lagos del Sur y Alto Neuquén concentran el 60&nbsp;% de los recorridos.</p>
+      </section>
+      <section class="col refugios" style="--cd:0.45s" aria-labelledby="h-refugios">
+        <h2 id="h-refugios">Refugios</h2>
+        <p class="big" data-n="14" data-d="0.75">14</p>
+        <p class="desc">en Alto Neuquén, Pehuén y Lagos del Sur</p>
+        <ul class="rows">
+          <li class="row"><span>Lagos del Sur</span><b data-n="6" data-d="2.25">6</b><i class="bar"><u style="--w:100.0%;--d:2.25s"></u></i></li>
+          <li class="row"><span>Alto Neuquén</span><b data-n="5" data-d="2.42">5</b><i class="bar"><u style="--w:83.3%;--d:2.42s"></u></i></li>
+          <li class="row"><span>Pehuén</span><b data-n="3" data-d="2.59">3</b><i class="bar"><u style="--w:50.0%;--d:2.59s"></u></i></li>
+          <li class="row off"><span>Confluencia</span><b aria-label="sin">—</b><i class="bar"></i></li>
+          <li class="row off"><span>Vaca Muerta</span><b aria-label="sin">—</b><i class="bar"></i></li>
+          <li class="row off"><span>Limay</span><b aria-label="sin">—</b><i class="bar"></i></li>
+        </ul>
+        <p class="note">Presentes en 3 de las 6 regiones.</p>
+      </section>
+      <section class="col miradores" style="--cd:0.75s" aria-labelledby="h-miradores">
+        <h2 id="h-miradores">Miradores</h2>
+        <p class="big" data-n="30" data-d="1.05">30</p>
+        <p class="desc">repartidos en las seis regiones</p>
+        <ul class="rows">
+          <li class="row"><span>Alto Neuquén</span><b data-n="18" data-d="3.15">18</b><i class="bar"><u style="--w:100.0%;--d:3.15s"></u></i></li>
+          <li class="row"><span>Lagos del Sur</span><b data-n="5" data-d="3.32">5</b><i class="bar"><u style="--w:27.8%;--d:3.32s"></u></i></li>
+          <li class="row"><span>Pehuén</span><b data-n="2" data-d="3.49">2</b><i class="bar"><u style="--w:11.1%;--d:3.49s"></u></i></li>
+          <li class="row"><span>Vaca Muerta</span><b data-n="2" data-d="3.66">2</b><i class="bar"><u style="--w:11.1%;--d:3.66s"></u></i></li>
+          <li class="row"><span>Limay</span><b data-n="2" data-d="3.83">2</b><i class="bar"><u style="--w:11.1%;--d:3.83s"></u></i></li>
+          <li class="row"><span>Confluencia</span><b data-n="1" data-d="4.00">1</b><i class="bar"><u style="--w:5.6%;--d:4.00s"></u></i></li>
+        </ul>
+        <p class="note">18 de los 30 están en Alto Neuquén.</p>
+      </section>
+    <div class="incl">
+      <h2>Incluye</h2>
+      <ul><li>Cartelería de inicio</li><li>Señalética general</li><li>Cartelería preventiva</li><li>Conectividad a internet</li><li>Trackeo digital en el celular</li><li>Registro virtual</li></ul>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement,slide=document.getElementById('slide'),mq=window.matchMedia('(min-width:900px)');
+  root.classList.add('js');
+  function fit(){
+    if(!mq.matches){slide.style.transform='';slide.style.left='';slide.style.top='';return}
+    var s=Math.min(window.innerWidth/2160,window.innerHeight/1080);
+    slide.style.transform='scale('+s+')';
+    slide.style.left=(window.innerWidth-2160*s)/2+'px';
+    slide.style.top=(window.innerHeight-1080*s)/2+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  /* cifras que suben (la de cada bloque al entrar; la de cada fila, junto con su barra); sin animar con «reducir movimiento» */
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('[data-n]'),function(el){
+    var n=+el.getAttribute('data-n'),d=(+el.getAttribute('data-d')||.25)*1000,dur=el.classList.contains('big')||el.parentNode.className==='total'?1000:800;if(reduce) return;
+    var t0=null;el.textContent='0';
+    function step(t){if(t0===null) t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(n*e);if(k<1) requestAnimationFrame(step)}
+    setTimeout(function(){requestAnimationFrame(step)},d);
+  });
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('on')})});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Lista blanca: solo código. Imágenes y videos viven en Vercel (no van al repo).
+/*
+!/.gitignore
+!/README.md
+!/CLAUDE.md
+!/.claude/
+!/herramientas/
+!/_base-v121/
+!/scroll/
+/scroll/*
+!/scroll/*.html
+.DS_Store

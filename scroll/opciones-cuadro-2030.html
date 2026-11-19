@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Opciones · cuadro 2030</title>
+<meta name="description" content="Cuatro propuestas de diseño para mostrar el cuadro 2030 de la Rendición de cuentas del Neuquén (borrador para evaluar).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Opciones de diseño para el cuadro 2030 (v2). Página aparte: no forma parte de las 49 pantallas. Misma paleta y tipografía del informe;
+   el amarillo del RIGI sale de la propuesta del cliente. Todas las cifras se dibujan desde un único objeto D (el cuadro original). */
+:root{
+  --bg:#06202A; --deep:#031820; --navy:#03394D; --cream:#FDF3E0; --dim:#A8B9BA;
+  --coral:#EB6458; --teal:#05AEB5; --green:#8AB86A; --sun:#F5C518;
+  --line:rgba(253,243,224,.22);
+  --text:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 17px/1.5 var(--text);letter-spacing:-.025em;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+h1,h2,h3,p,ul,figure{margin:0}
+a{color:inherit}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+.bar{position:sticky;top:0;z-index:5;background:rgba(6,32,42,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;padding-block:10px}
+.bar b{font-weight:800;font-size:15px;letter-spacing:.02em;margin-right:auto}
+.bar a{font-weight:700;font-size:14px;text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px}
+.bar a:hover{border-color:var(--cream)}
+
+.head{padding-block:clamp(36px,6vw,72px) 24px}
+.eb{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+h1{font-weight:800;font-size:clamp(34px,5.2vw,64px);line-height:1.03;letter-spacing:-.035em;margin-top:10px;text-wrap:balance}
+.lead{max-width:64ch;margin-top:16px;font-size:clamp(17px,1.5vw,20px);color:var(--dim)}
+.lead b{color:var(--cream);font-weight:700}
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.ref{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--deep)}
+.ref a{display:block}
+.ref img{width:100%;height:auto}
+.ref figcaption{padding:12px 16px;font-size:14px;color:var(--dim)}
+.ref figcaption b{display:block;color:var(--cream);font-size:16px;font-weight:800}
+
+.opt{padding-block:clamp(30px,5vw,60px) 10px;scroll-margin-top:56px}
+.opt h2{font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+.opt h2 span{color:var(--teal)}
+.opt .sub{max-width:72ch;margin-top:8px;color:var(--dim)}
+.frame{margin-top:18px;border:1px solid var(--line);border-radius:16px;overflow-x:auto;overflow-y:hidden;background:var(--navy)}
+.frame+.frame{margin-top:14px}
+.sizer{position:relative}
+.stage{position:absolute;left:0;top:0;width:1920px;height:960px;transform-origin:0 0;overflow:hidden;font-family:var(--text);letter-spacing:-.025em}
+.stage svg{display:block;width:1920px;height:960px}
+.stage svg text{font-family:var(--text);letter-spacing:-.025em}
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px;font-size:15px;line-height:1.35}
+.notes div{border-top:3px solid var(--c);padding-top:8px;color:var(--dim)}
+.notes b{display:block;color:var(--cream);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+.hint{display:none;margin-top:8px;font-size:13px;color:var(--dim)}
+.src{margin-top:34px;padding-block:18px 60px;border-top:1px solid var(--line);font-size:14px;color:var(--dim)}
+@media (max-width:900px){.refs,.notes{grid-template-columns:1fr}.hint{display:block}}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap gut">
+  <b>Opciones · cuadro 2030</b>
+  <a href="#partida">Punto de partida</a><a href="#anterior">Versión anterior</a><a href="#base">Base · escalera</a><a href="#opcion-1">1 · Dos mitades</a><a href="#opcion-2">2 · Cada 100</a><a href="#opcion-3">3 · Línea 2030</a><a href="#opcion-4">4 · Tres tiempos</a>
+</div></header>
+
+<main class="wrap gut">
+
+<section class="head" id="partida">
+  <p class="eb">Rendición de cuentas 2026 · borrador para evaluar · versión 3: la Base ya es la pantalla de la presentación</p>
+  <h1>Cuatro maneras de contar el cuadro 2030</h1>
+  <p class="lead">El cuadro original reúne <b>cuatro historias</b> en una grilla de 7 años: lo que pesaba la deuda, cuánta se amortiza, cómo crecen los ingresos y qué pasa con el déficit de infraestructura con el ciudadano. Como <b>base</b> queda la escalera de barras, editada sobre la propuesta de Comunicación y con las cifras del cuadro; las cuatro opciones siguientes <b>no son otro gráfico de barras</b>: cada una usa otro lenguaje y la paleta cuenta el paso del tiempo (del coral oscuro de dic-23 al celeste y crema de 2030). <b>Todas las cifras salen del cuadro:</b> no se agregó ningún dato ni ícono.</p>
+  <div class="refs">
+    <figure class="ref"><a href="img/rapido/cuadro-2030-v2.webp" target="_blank" rel="noopener"><img src="img/rapido/cuadro-2030-v2.webp" alt="Cuadro 2030 original: planilla con la deuda, el financiamiento, los ingresos y el déficit de infraestructura, de dic-23 a 2030" width="1920" height="1080" loading="lazy"></a><figcaption><b>El cuadro original</b>Es el respaldo y no se toca (tecla 1 en la presentación). Tocá la imagen para verla grande.</figcaption></figure>
+    <figure class="ref"><a href="img/opciones/propuesta-cliente-v1.webp" target="_blank" rel="noopener"><img src="img/opciones/propuesta-cliente-v1.webp" alt="Propuesta recibida: escalera de barras del déficit con el ciudadano, 2024 a 2030, con y sin RIGI" width="1600" height="900" loading="lazy"></a><figcaption><b>Propuesta recibida (escalera de barras)</b>Es el original de Comunicación: abajo, la edición que queda como base.</figcaption></figure>
+  </div>
+</section>
+
+<section class="opt" id="anterior">
+  <h2><span>Versión anterior ·</span> La tabla de cuatro columnas</h2>
+  <p class="sub">Es la pantalla «Menos deuda y más ingresos para seguir construyendo el futuro» tal como estuvo en la presentación hasta el 17/11, antes de pasar a la escalera de abajo (Base): financiamiento sobre ingresos, stock de deuda pública, ingresos adicionales por RIGI y deuda de infraestructura con el ciudadano, año por año. Queda acá como referencia; el cuadro original sigue en la tecla 1.</p>
+  <figure class="ref" style="margin-top:18px"><a href="img/opciones/version-anterior-v1.webp" target="_blank" rel="noopener"><img src="img/opciones/version-anterior-v1.webp" alt="Versión anterior de la pantalla: tabla de cuatro columnas con financiamiento sobre ingresos, stock de deuda pública, ingresos adicionales por RIGI y deuda de infraestructura con el ciudadano, de dic-23 a 2030" width="1920" height="1020" loading="lazy"></a><figcaption><b>Versión anterior</b>Captura de la pantalla a 1920 × 1080. Tocá la imagen para verla grande.</figcaption></figure>
+</section>
+
+<section class="opt" id="base">
+  <h2><span>Base ·</span> La escalera, editada</h2>
+  <p class="sub">Parte de la propuesta de Comunicación y queda como base de trabajo: el mismo gráfico de barras, sin íconos ni datos que no estén en el cuadro. Titular con el recorrido completo (de −U$S 4.000 M a +U$S 4.221 M), cada cifra con su moneda y la deuda recibida y vigente en la franja de abajo.</p>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s0"></div></div></div>
+  <p class="hint">Deslizá hacia los costados para ver la lámina completa.</p>
+  <div class="notes">
+    <div style="--c:var(--coral)"><b>Qué cuenta</b>El déficit de infraestructura con el ciudadano año por año, el cruce a positivo sin RIGI en 2029 y lo que suma el RIGI.</div>
+    <div style="--c:var(--teal)"><b>Qué cambió</b>Sin íconos de obras, titular con las dos puntas, amarillo solo para «suma el RIGI» y cifras con moneda en cada valor.</div>
+    <div style="--c:var(--sun)"><b>Cuándo conviene</b>Si se quiere mantener el formato que ya conoce Comunicación, con el cuadro como único respaldo.</div>
+  </div>
+</section>
+
+<section class="opt" id="opcion-1">
+  <h2><span>Opción 1 ·</span> Dos mitades: ayer y 2030</h2>
+  <p class="sub">La pantalla se parte en dos mundos: a la izquierda dic-23, en rojo oscuro; a la derecha 2030, en celeste. Tres filas, un número enorme de cada lado y una flecha en el medio. El cambio de color <i>es</i> la evolución.</p>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s1"></div></div></div>
+  <p class="hint">Deslizá hacia los costados para ver la lámina completa.</p>
+  <div class="notes">
+    <div style="--c:var(--coral)"><b>Qué cuenta</b>Tres comparaciones directas: peso de la deuda sobre los ingresos, deuda pública y déficit con el ciudadano. El RIGI aparece como un cartel amarillo.</div>
+    <div style="--c:var(--teal)"><b>Qué deja afuera</b>Los años intermedios (quedan en el respaldo).</div>
+    <div style="--c:var(--sun)"><b>Cuándo conviene</b>Para una pantalla de síntesis que se entienda en dos segundos, aun de lejos.</div>
+  </div>
+</section>
+
+<section class="opt" id="opcion-2">
+  <h2><span>Opción 2 ·</span> Cada 100: la deuda se achica y se paga</h2>
+  <p class="sub">Un cuadrado = 1 de cada 100. Arriba, cuántos de cada 100 de ingresos pesaba el financiamiento (el coral se vacía). Abajo, cuántos de cada 100 de la deuda pública heredada ya se pagaron (el celeste se llena). La evolución se ve sin leer ni un número.</p>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s2"></div></div></div>
+  <p class="hint">Deslizá hacia los costados para ver la lámina completa.</p>
+  <div class="notes">
+    <div style="--c:var(--coral)"><b>Qué cuenta</b>Dos historias espejo: la que baja (peso sobre los ingresos) y la que sube (deuda amortizada), con los 7 años completos.</div>
+    <div style="--c:var(--teal)"><b>Qué deja afuera</b>El déficit de infraestructura con el ciudadano y los ingresos en dólares: iría en una pantalla vecina.</div>
+    <div style="--c:var(--sun)"><b>Cuándo conviene</b>Si se quiere explicar la deuda con una imagen simple, casi pedagógica.</div>
+  </div>
+</section>
+
+<section class="opt" id="opcion-3">
+  <h2><span>Opción 3 ·</span> Línea 2030: el recorrido, estación por estación</h2>
+  <p class="sub">Un plano de línea de subte: cada año es una estación y la línea cambia de color al pasar a positivo. En 2027 la línea se bifurca: arriba, el ramal «con RIGI». No hay escala vertical, no hay barras: cada estación muestra una cifra.</p>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s3"></div></div></div>
+  <p class="hint">Deslizá hacia los costados para ver la lámina completa.</p>
+  <div class="notes">
+    <div style="--c:var(--coral)"><b>Qué cuenta</b>El déficit de infraestructura con el ciudadano año por año, el punto en que cambia de signo y la diferencia con RIGI. Abajo, dos cifras de apoyo.</div>
+    <div style="--c:var(--teal)"><b>Qué deja afuera</b>El detalle de ingresos por impuesto y de inversiones del RIGI.</div>
+    <div style="--c:var(--sun)"><b>Cuándo conviene</b>Si se quiere un relato «de recorrido» que conecte con las obras (rutas, hospitales, escuelas) de otras pantallas.</div>
+  </div>
+</section>
+
+<section class="opt" id="opcion-4">
+  <h2><span>Opción 4 ·</span> Tres tiempos: heredamos, pagamos, devolvemos</h2>
+  <p class="sub">El cuadro se cuenta en tres pantallas seguidas, una idea por pantalla. La paleta avanza con el relato: coral oscuro (lo que recibimos), azul (lo que fuimos pagando) y crema (lo que queda con el ciudadano).</p>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s4"></div></div></div>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s5"></div></div></div>
+  <div class="frame" data-f><div class="sizer"><div class="stage" id="s6"></div></div></div>
+  <p class="hint">Deslizá hacia los costados para ver las láminas completas.</p>
+  <div class="notes">
+    <div style="--c:var(--coral)"><b>Qué cuenta</b>Todo el cuadro, repartido: deuda heredada (U$S 1.800 M, 83 % de los ingresos y −U$S 4.000 M), lo pagado e ingresos, y el déficit con el ciudadano.</div>
+    <div style="--c:var(--teal)"><b>Qué implica</b>Pasa de una parada a tres: hay que decidir si el recorrido lo admite (hoy el cuadro 2030 es una sola parada).</div>
+    <div style="--c:var(--sun)"><b>Cuándo conviene</b>Si se prefiere que cada cifra respire y se pueda decir en voz alta antes de pasar a la siguiente.</div>
+  </div>
+</section>
+
+<p class="src">Fuente de todas las cifras: cuadro 2030 (cifras en U$S M; 2027 a 2030 proyectado). «Deuda vigente al 2030» incluye compromisos de deuda asumidos a esa fecha. Esta página es un borrador de trabajo y no forma parte de la presentación.</p>
+</main>
+
+<script>
+(function(){
+'use strict';
+/* ---- el cuadro original (cifras en U$S M) ---- */
+var D={
+  y:['dic-23','2025','2026','2027','2028','2029','2030'],
+  stock:[1263,806,606,423,251,131,81],
+  amort:[0,36,52,66,80,90,94],
+  finSin:[83,16,24,24,23,20,17],
+  finCon:[83,16,24,24,22,18,15],
+  ingSin:[null,4653,5300,5822,6555,7074,7463],
+  ingCon:[null,4653,5300,5826,6831,7808,8870],
+  defSin:[-4000,-3000,-2400,-1450,-500,600,1800],
+  defCon:[-4000,-3000,-2400,-1450,-221,1614,4221],
+  rigiInv:[0,0,0,4,279,1014,2421],
+  pub:1263,flot:187,contr:350,total:1800,vig2030:1288
+};
+var C={coral:'#EB6458',coralL:'#FFB4AC',teal:'#05AEB5',tealInk:'#08777F',coralInk:'#B3382D',sun:'#F5C518',cream:'#FDF3E0',dim:'#A8B9BA',deep:'#031820',navy:'#03394D'};
+var NB=' ',MN='−';
+function nf(n){return String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+/* valor en U$S M, con la moneda en cada cifra (tspans: U$S y M más chicos) */
+function mon(v,size,plus){var cs=Math.round(size*.42);return (v<0?MN:(plus&&v>0?'+':''))+'<tspan font-size="'+cs+'" font-weight="700">U$S'+NB+'</tspan>'+nf(v)+'<tspan font-size="'+cs+'" font-weight="700">'+NB+'M</tspan>'}
+function pc(n,size){return n+'<tspan font-size="'+Math.round(size*.5)+'" font-weight="700">'+NB+'%</tspan>'}
+function tx(x,y,inner,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-size="'+(o.size||28)+'" font-weight="'+(o.weight||700)+'" fill="'+(o.fill||C.cream)+'" text-anchor="'+(o.anchor||'start')+'"'+(o.ls?' letter-spacing="'+o.ls+'"':'')+(o.op?' opacity="'+o.op+'"':'')+'>'+inner+'</text>'}
+function rc(x,y,w,h,f,r,extra){return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+Math.max(h,0).toFixed(1)+'" fill="'+f+'" rx="'+(r||0)+'" '+(extra||'')+'/>'}
+function chip(x,y,w,inner,bg,fg,size,anchor){size=size||28;var h=Math.round(size*1.7);return rc(anchor==='middle'?x-w/2:x,y,w,h,bg,h/2)+tx(anchor==='middle'?x:x+w/2,y+h*.68,inner,{size:size,weight:800,fill:fg,anchor:'middle'})}
+function svg(inner,label,defs){return '<svg viewBox="0 0 1920 960" role="img" aria-label="'+label+'" xmlns="http://www.w3.org/2000/svg"><defs>'+(defs||'')+'</defs>'+inner+'</svg>'}
+function lg(id,x1,y1,x2,y2,stops,units){return '<linearGradient id="'+id+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"'+(units?' gradientUnits="userSpaceOnUse"':'')+'>'+stops.map(function(s){return '<stop offset="'+s[0]+'" stop-color="'+s[1]+'"/>'}).join('')+'</linearGradient>'}
+
+/* ---------- base: la escalera editada ---------- */
+function d0(){
+  var s='',X0=240,CW=240,BW=150,Z=540,K=225/4221,defs='<pattern id="hz" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="16" height="16" fill="'+C.sun+'"/><rect width="8" height="16" fill="'+C.deep+'"/></pattern>'+lg('bg0',0,0,0,1,[[0,'#04384A'],[1,'#031E28']]);
+  function X(i){return X0+i*CW}
+  function mp(v,plus){return (v<0?MN:(plus&&v>0?'+':''))+'U$S'+NB+nf(v)+NB+'M'}
+  s+=rc(0,0,1920,960,'url(#bg0)');
+  s+=tx(120,92,'DÉFICIT DE INFRAESTRUCTURA CON EL CIUDADANO',{size:28,weight:800,fill:C.teal});
+  s+=tx(120,166,'Del '+MN+'U$S'+NB+'4.000'+NB+'M al +U$S'+NB+'4.221'+NB+'M',{size:74,weight:800});
+  var lx=1250,ly=84;
+  s+=rc(lx,ly-22,26,26,C.coral,6)+tx(lx+40,ly,'Déficit',{size:26,weight:600})+rc(lx+170,ly-22,26,26,C.teal,6)+tx(lx+210,ly,'Sin RIGI',{size:26,weight:600})+rc(lx+360,ly-22,26,26,C.sun,6)+tx(lx+400,ly,'Suma el RIGI',{size:26,weight:600});
+  D.y.forEach(function(y,i){s+=tx(X(i),222,y,{size:32,weight:700,anchor:'middle'})});
+  s+='<line x1="110" x2="1810" y1="'+Z+'" y2="'+Z+'" stroke="rgba(253,243,224,.4)" stroke-width="2"/>';
+  /* negativos (con RIGI en 2028: −221; el tramo hasta −500 sin RIGI, rayado) */
+  for(var i=0;i<4;i++){var h=-D.defCon[i]*K;s+=rc(X(i)-BW/2,Z,BW,h,C.coral,8);s+=tx(X(i),Z+h+50,mp(D.defCon[i]),{size:36,weight:800,fill:C.coralL,anchor:'middle'})}
+  var h4=-D.defCon[4]*K,h4s=-D.defSin[4]*K;
+  s+=rc(X(4)-BW/2,Z,BW,h4,C.coral,6)+rc(X(4)-BW/2,Z+h4,BW,h4s-h4,'url(#hz)',6,'stroke="'+C.sun+'" stroke-width="2"');
+  s+=tx(X(4),Z+h4s+46,mp(D.defCon[4]),{size:36,weight:800,fill:C.coralL,anchor:'middle'})+tx(X(4),Z+h4s+82,'sin RIGI '+MN+'U$S'+NB+nf(D.defSin[4])+NB+'M',{size:24,weight:600,fill:C.dim,anchor:'middle'});
+  /* positivos: celeste = sin RIGI, amarillo = lo que suma el RIGI */
+  [5,6].forEach(function(i){
+    var hs=D.defSin[i]*K,hc=D.defCon[i]*K;
+    s+=rc(X(i)-BW/2,Z-hs,BW,hs,C.teal,8)+rc(X(i)-BW/2,Z-hc,BW,hc-hs,C.sun,8);
+    s+=tx(X(i),Z-hc-18,mp(D.defCon[i],1),{size:36,weight:800,fill:C.sun,anchor:'middle'});
+    s+=tx(X(i),Z+40,'Sin RIGI',{size:24,weight:600,fill:C.dim,anchor:'middle'})+tx(X(i),Z+80,mp(D.defSin[i],1),{size:36,weight:800,fill:C.teal,anchor:'middle'});
+  });
+  s+=tx(120,320,'Sin RIGI, la cuenta pasa a positivo en 2029.',{size:36,weight:600});
+  s+=tx(120,370,'Con RIGI, llega a +U$S'+NB+nf(D.defCon[6])+NB+'M en 2030:',{size:36,weight:600,fill:C.sun});
+  s+=tx(120,416,'+U$S'+NB+nf(D.defCon[6]-D.defSin[6])+NB+'M más que sin RIGI.',{size:36,weight:600,fill:C.sun});
+  /* franja de deuda */
+  var sc=760/D.total,by=868,bx=120;
+  s+=tx(120,850,'Deuda recibida a dic-23',{size:26,weight:700,fill:C.dim})+tx(470,850,mp(D.total),{size:30,weight:800});
+  [[D.pub,C.coral],[D.flot,'#EE8E86'],[D.contr,'#F8C4BE']].forEach(function(p,k){var w=p[0]*sc-(k<2?4:0);s+=rc(bx,by,w,26,p[1],8);bx+=p[0]*sc});
+  s+=tx(120,926,'Pública '+mp(D.pub)+' · flotante '+mp(D.flot)+' · contratos '+mp(D.contr),{size:22,weight:700,fill:C.dim});
+  s+=tx(1040,850,'Deuda vigente al 2030*',{size:26,weight:700,fill:C.dim})+tx(1410,850,mp(D.vig2030),{size:30,weight:800});
+  s+=rc(1040,by,D.vig2030*sc,26,C.teal,8);
+  s+=tx(1040,926,'Pesa '+D.finCon[6]+NB+'% de los ingresos (con RIGI); en dic-23 pesaba '+D.finSin[0]+NB+'%.',{size:24,weight:700});
+  return svg(s,'Escalera: el déficit de infraestructura con el ciudadano pasa de −U$S 4.000 M en dic-23 a +U$S 4.221 M en 2030 con RIGI',defs);
+}
+
+/* ---------- opción 1: dos mitades ---------- */
+function d1(){
+  var s='',defs=lg('gl',0,0,1,1,[[0,'#2B0F0D'],[1,'#8E2F28']])+lg('gr',0,0,1,1,[[0,'#0FC1C8'],[1,'#05A0A8']]);
+  s+=rc(0,0,960,960,'url(#gl)')+rc(960,0,960,960,'url(#gr)');
+  s+=tx(480,104,'DIC-23',{size:62,weight:800,anchor:'middle',ls:7})+tx(480,148,'Lo que recibimos',{size:30,weight:600,fill:C.coralL,anchor:'middle'});
+  s+=tx(1440,104,'2030',{size:62,weight:800,anchor:'middle',ls:7,fill:C.deep})+tx(1440,148,'Lo que proyectamos',{size:30,weight:700,fill:C.navy,anchor:'middle'});
+  var rows=[
+    {n:'Peso de la deuda sobre los ingresos',a:pc(D.finSin[0],130),b:pc(D.finSin[6],130),chip:['Con RIGI: '+D.finCon[6]+NB+'%',C.sun,C.deep],ac:C.coralL},
+    {n:'Deuda pública',a:mon(D.stock[0],104),b:mon(D.stock[6],104),chip:[D.amort[6]+NB+'% amortizado',C.deep,C.cream],ac:C.cream,sz:104},
+    {n:'Déficit de infraestructura con el ciudadano',a:mon(D.defSin[0],104),b:mon(D.defSin[6],104,1),chip:['Con RIGI: '+(D.defCon[6]>0?'+':'')+'U$S'+NB+nf(D.defCon[6])+NB+'M',C.sun,C.deep],ac:C.coralL,sz:104}
+  ];
+  rows.forEach(function(r,i){
+    var y0=200+i*250,sz=r.sz||130;
+    if(i)s+='<line x1="60" x2="1860" y1="'+(y0-6)+'" y2="'+(y0-6)+'" stroke="rgba(253,243,224,.18)" stroke-width="2"/>';
+    var w=Math.round(r.n.length*14.5+70);
+    s+=rc(960-w/2,y0+6,w,60,C.cream,30)+tx(960,y0+46,r.n,{size:27,weight:800,fill:C.deep,anchor:'middle'});
+    s+=tx(850,y0+176,r.a,{size:sz,weight:800,fill:r.ac,anchor:'end'});
+    s+=tx(1072,y0+176,r.b,{size:sz,weight:800,fill:C.deep});
+    s+='<circle cx="960" cy="'+(y0+120)+'" r="38" fill="'+C.cream+'"/>'+tx(960,y0+134,'→',{size:44,weight:800,fill:C.deep,anchor:'middle'});
+    var cw=Math.round(r.chip[0].length*13+44);
+    s+=chip(1072,y0+192,cw,r.chip[0],r.chip[1],r.chip[2],26);
+  });
+  return svg(s,'Dos mitades: dic-23 en rojo oscuro y 2030 en celeste, con tres comparaciones',defs);
+}
+
+/* ---------- opción 2: cada 100 ---------- */
+function waffle(x,y,n,col,emp){
+  var sq=15,pt=18,o='';
+  for(var k=0;k<100;k++){var r=Math.floor(k/10),c=k%10,on=k<n; /* se llena desde abajo */
+    o+='<rect x="'+(x+c*pt)+'" y="'+(y+(9-r)*pt)+'" width="'+sq+'" height="'+sq+'" rx="3" fill="'+(on?col:emp)+'"/>';}
+  return o;
+}
+function d2(){
+  var s='',defs=lg('bg2',0,0,0,1,[[0,'#06202A'],[1,'#04303F']]);
+  s+=rc(0,0,1920,960,'url(#bg2)');
+  s+=tx(120,92,'CADA CUADRADO ES 1 DE CADA 100',{size:28,weight:800,fill:C.teal,ls:3});
+  s+=tx(120,160,'La deuda pesa cada vez menos, y se paga',{size:62,weight:800});
+  var X0=120,P=240,EM='rgba(253,243,224,.13)';
+  s+=tx(120,236,'Financiamiento: de cada 100 de ingresos del ejercicio',{size:30,weight:700,fill:C.coralL});
+  s+=tx(120,628,'Deuda pública heredada: de cada 100, cuántos ya se pagaron',{size:30,weight:700,fill:'#7FDADD'});
+  for(var i=0;i<7;i++){
+    var x=X0+i*P,cx=x+90;
+    s+=waffle(x,258,D.finSin[i],C.coral,EM);
+    s+=tx(cx,484,D.y[i],{size:28,weight:700,fill:C.dim,anchor:'middle'});
+    s+=tx(cx,540,pc(D.finSin[i],56),{size:56,weight:800,fill:i?C.cream:C.coralL,anchor:'middle'});
+    if(i>=4)s+=tx(cx,576,'con RIGI '+D.finCon[i]+NB+'%',{size:26,weight:800,fill:C.sun,anchor:'middle'});
+    s+=waffle(x,650,D.amort[i],C.teal,EM);
+    s+=tx(cx,876,pc(D.amort[i],56),{size:56,weight:800,fill:i?C.cream:C.dim,anchor:'middle'});
+    s+=tx(cx,914,'U$S'+NB+nf(D.stock[i])+NB+'M',{size:26,weight:700,fill:C.dim,anchor:'middle'});
+  }
+  return svg(s,'Cada 100: el financiamiento sobre los ingresos baja de 83 a 17 y la deuda pública amortizada sube de 0 a 94',defs);
+}
+
+/* ---------- opción 3: línea 2030 ---------- */
+function d3(){
+  var s='',X=function(i){return 200+i*253},ML=540,BL=300;
+  var defs=lg('bg3',0,0,0,1,[[0,'#06202A'],[1,'#032B37']])+lg('ln3',140,0,1780,0,[[0,C.coral],[.55,'#F4B29B'],[.72,C.cream],[.85,C.teal],[1,C.teal]],1);
+  s+=rc(0,0,1920,960,'url(#bg3)');
+  s+=tx(120,92,'DÉFICIT DE INFRAESTRUCTURA CON EL CIUDADANO',{size:28,weight:800,fill:C.teal,ls:3});
+  s+=tx(120,160,'Línea 2030: del −U$S 4.000 M al +U$S 4.221 M',{size:60,weight:800});
+  s+='<path d="M140 '+ML+' L1780 '+ML+'" stroke="url(#ln3)" stroke-width="28" stroke-linecap="round" fill="none"/>';
+  s+='<path d="M'+X(3)+' '+ML+' C'+(X(3)+110)+' '+ML+' '+(X(3)+120)+' '+BL+' '+X(4)+' '+BL+' L1780 '+BL+'" stroke="'+C.sun+'" stroke-width="22" stroke-linecap="round" fill="none"/>';
+  s+=tx(X(3)+190,404,'RAMAL CON RIGI',{size:24,weight:800,fill:C.sun,ls:4});
+  for(var i=0;i<7;i++){
+    var v=D.defSin[i],pos=v>0,col=pos?C.teal:(v>-600?C.cream:C.coral);
+    s+=tx(X(i),ML-52,D.y[i],{size:34,weight:800,anchor:'middle'});
+    s+='<circle cx="'+X(i)+'" cy="'+ML+'" r="30" fill="#06202A" stroke="'+col+'" stroke-width="12"/>';
+    s+=tx(X(i),ML+112,mon(v,46,1),{size:46,weight:800,fill:col,anchor:'middle'});
+    if(i>=4){s+=tx(X(i),ML+150,'sin RIGI',{size:24,weight:700,fill:C.dim,anchor:'middle'});
+      var vc=D.defCon[i];s+='<circle cx="'+X(i)+'" cy="'+BL+'" r="26" fill="#06202A" stroke="'+C.sun+'" stroke-width="10"/>';
+      s+=tx(X(i),BL-52,mon(vc,46,1),{size:46,weight:800,fill:C.sun,anchor:'middle'});}
+  }
+  var fx=X(5);
+  s+='<circle cx="'+fx+'" cy="'+ML+'" r="52" fill="none" stroke="'+C.teal+'" stroke-width="4" stroke-dasharray="6 8"/>';
+  s+=tx(1100,ML+212,'Desde 2029 la cuenta pasa a positivo',{size:32,weight:800,fill:C.cream,anchor:'middle'});
+  function box(x,w,k,inner,col){return rc(x,780,w,140,'rgba(3,24,32,.5)',24,'stroke="'+col+'" stroke-width="3"')+tx(x+30,824,k,{size:24,weight:800,fill:col,ls:3})+inner}
+  s+=box(120,780,'PESO DE LA DEUDA SOBRE LOS INGRESOS',tx(150,894,pc(D.finSin[0],64)+'<tspan font-size="46" fill="'+C.dim+'"> → </tspan>'+pc(D.finSin[6],64)+'<tspan font-size="30" fill="'+C.sun+'">'+NB+NB+'(15'+NB+'% con RIGI)</tspan>',{size:64,weight:800}),C.coral);
+  s+=box(940,860,'DEUDA PÚBLICA HEREDADA',tx(970,894,mon(D.stock[0],64)+'<tspan font-size="46" fill="'+C.dim+'"> → </tspan>'+mon(D.stock[6],64),{size:64,weight:800})+tx(1770,824,'94'+NB+'% amortizado',{size:28,weight:800,fill:C.teal,anchor:'end'}),C.teal);
+  return svg(s,'Línea de subte con una estación por año y un ramal con RIGI',defs);
+}
+
+/* ---------- opción 4: tres tiempos ---------- */
+function d4(){
+  var s='',defs=lg('g4',0,0,1,1,[[0,'#220C0A'],[1,'#7A2822']]);
+  s+=rc(0,0,1920,960,'url(#g4)');
+  s+=tx(120,96,'1 · DIC-23 · LO QUE HEREDAMOS',{size:28,weight:800,fill:C.coralL,ls:5});
+  s+=tx(120,300,mon(D.total,210),{size:210,weight:800});
+  s+=tx(120,356,'de deuda pública, flotante y contratos',{size:36,weight:600,fill:C.coralL});
+  var x0=120,W=1680,sc=W/D.total,seg=[[D.pub,'#EB6458','Deuda pública'],[D.flot,'#F08F86','Flotante'],[D.contr,'#F7C0B9','Contratos (+140 obras)']],x=x0;
+  seg.forEach(function(g,i){var w=g[0]*sc-(i?6:0),xx=x+(i?6:0);s+=rc(xx,400,w,56,g[1],10);
+    s+=tx(xx,510,mon(g[0],34),{size:34,weight:800,fill:C.cream})+tx(xx,546,g[2],{size:24,weight:600,fill:C.coralL});x+=g[0]*sc;});
+  s+=rc(120,620,820,280,'rgba(3,24,32,.45)',28,'stroke="'+C.coralL+'" stroke-width="3"')+tx(160,676,'FINANCIAMIENTO SOBRE INGRESOS',{size:24,weight:800,fill:C.coralL,ls:3})+tx(160,820,pc(D.finSin[0],150),{size:150,weight:800,fill:C.coralL})+tx(160,872,'de los ingresos del ejercicio',{size:28,weight:600,fill:C.cream});
+  s+=rc(980,620,820,280,'rgba(3,24,32,.45)',28,'stroke="'+C.coralL+'" stroke-width="3"')+tx(1020,676,'DÉFICIT DE INFRAESTRUCTURA CON EL CIUDADANO',{size:24,weight:800,fill:C.coralL,ls:3})+tx(1020,810,mon(D.defSin[0],96),{size:96,weight:800,fill:C.coralL})+tx(1020,872,'lo que faltaba hacer',{size:28,weight:600,fill:C.cream});
+  return svg(s,'Pantalla 1 de 3: lo que heredamos, U$S 1.800 M de deuda',defs);
+}
+function d5(){
+  var s='',defs=lg('g5',0,0,1,1,[[0,'#06202A'],[1,'#0A4A5A']]);
+  s+=rc(0,0,1920,960,'url(#g5)');
+  s+=tx(120,96,'2 · HASTA 2030 · LO QUE FUIMOS PAGANDO',{size:28,weight:800,fill:C.teal,ls:5});
+  var cx=420,cy=520,r=210,Cc=2*Math.PI*r;
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="rgba(235,100,88,.55)" stroke-width="62"/>';
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+C.teal+'" stroke-width="62" stroke-dasharray="'+(Cc*.94).toFixed(1)+' '+Cc.toFixed(1)+'" transform="rotate(-90 '+cx+' '+cy+')"/>';
+  s+=tx(cx,cy+40,pc(94,170),{size:170,weight:800,anchor:'middle'});
+  s+=tx(cx,cy+92,'amortizado',{size:34,weight:700,fill:C.dim,anchor:'middle'});
+  s+=tx(cx,cy+r+96,'de la deuda pública heredada',{size:30,weight:600,fill:C.cream,anchor:'middle'});
+  function stat(y,k,a,b,c2){return tx(860,y,k,{size:26,weight:800,fill:C.teal,ls:3})+tx(860,y+82,a,{size:64,weight:800,fill:C.dim})+tx(1290,y+80,'→',{size:56,weight:800,fill:C.cream})+tx(1370,y+86,b,{size:92,weight:800})+(c2?chip(860,y+112,c2[1],c2[0],C.sun,C.deep,26):'')}
+  s+=stat(210,'DEUDA PÚBLICA HEREDADA',mon(D.stock[0],64),mon(D.stock[6],92));
+  s+='<line x1="860" x2="1800" y1="380" y2="380" stroke="rgba(253,243,224,.2)" stroke-width="2"/>';
+  s+=stat(440,'FINANCIAMIENTO SOBRE INGRESOS',pc(D.finSin[0],64),pc(D.finSin[6],92),['Con RIGI: '+D.finCon[6]+NB+'%',250]);
+  s+='<line x1="860" x2="1800" y1="650" y2="650" stroke="rgba(253,243,224,.2)" stroke-width="2"/>';
+  s+=stat(690,'INGRESOS ANUALES · 2025 → 2030',mon(D.ingSin[1],64),mon(D.ingSin[6],92),['Con RIGI: U$S'+NB+nf(D.ingCon[6])+NB+'M',460]);
+  return svg(s,'Pantalla 2 de 3: lo que fuimos pagando, 94 % de la deuda pública amortizada',defs);
+}
+function d6(){
+  var s='',defs=lg('g6',0,0,1,1,[[0,'#FFF8E8'],[1,'#F6E6C6']])+lg('rg6',120,0,1800,0,[[0,C.coral],[.46,'#F4B29B'],[.486,C.cream],[.52,'#7FD6DA'],[1,C.teal]],1);
+  s+=rc(0,0,1920,960,'url(#g6)');
+  s+=tx(120,96,'3 · 2030 · LO QUE QUEDA CON EL CIUDADANO',{size:28,weight:800,fill:C.tealInk,ls:5});
+  s+=tx(120,232,mon(D.defSin[0],112),{size:112,weight:800,fill:C.coralInk});
+  s+=tx(900,224,'→',{size:96,weight:800,fill:C.navy,anchor:'middle'});
+  s+=tx(1010,232,mon(D.defCon[6],140,1),{size:140,weight:800,fill:C.tealInk});
+  s+=tx(120,296,'Déficit de infraestructura con el ciudadano: de dic-23 a 2030 con RIGI',{size:32,weight:600,fill:C.navy});
+  var k=1680/8221,X=function(v){return 120+(v+4000)*k},RY=600;
+  s+='<rect x="120" y="'+(RY-24)+'" width="1680" height="48" rx="24" fill="url(#rg6)"/>';
+  s+='<line x1="'+X(0)+'" x2="'+X(0)+'" y1="'+(RY-50)+'" y2="'+(RY+50)+'" stroke="'+C.navy+'" stroke-width="4"/>'+tx(X(0),RY+96,'0',{size:36,weight:800,fill:C.navy,anchor:'middle'});
+  function dot(v,r,f){return '<circle cx="'+X(v)+'" cy="'+RY+'" r="'+r+'" fill="'+f+'" stroke="'+C.navy+'" stroke-width="7"/>'}
+  s+=dot(D.defSin[0],24,C.cream)+dot(D.defSin[6],24,C.cream)+dot(D.defCon[6],28,C.sun);
+  s+=tx(X(D.defSin[0])-8,RY+110,'dic-23',{size:34,weight:800,fill:C.navy})+tx(X(D.defSin[0])-8,RY+166,mon(D.defSin[0],56),{size:56,weight:800,fill:C.coralInk});
+  s+=tx(X(D.defSin[6]),RY+110,'2030 · sin RIGI',{size:34,weight:800,fill:C.navy,anchor:'middle'})+tx(X(D.defSin[6]),RY+166,mon(D.defSin[6],56,1),{size:56,weight:800,fill:C.tealInk,anchor:'middle'});
+  s+=tx(X(D.defCon[6]),RY-118,'2030 · con RIGI',{size:34,weight:800,fill:C.navy,anchor:'end'})+tx(X(D.defCon[6]),RY-62,mon(D.defCon[6],56,1),{size:56,weight:800,fill:C.navy,anchor:'end'});
+  /* llave del aporte del RIGI */
+  s+='<path d="M'+(X(D.defSin[6])+14)+' '+(RY-52)+' L'+(X(D.defCon[6])-18)+' '+(RY-52)+'" stroke="'+C.sun+'" stroke-width="8" stroke-linecap="round"/>';
+  s+=tx((X(D.defSin[6])+X(D.defCon[6]))/2,RY-72,'',{size:10});
+  s+=chip(120,892,540,'Desde 2029 la cuenta pasa a positivo',C.navy,C.cream,26);
+  s+=chip(700,892,430,'Sin RIGI: '+(D.defSin[6]>0?'+':'')+'U$S'+NB+nf(D.defSin[6])+NB+'M',C.teal,C.deep,26);
+  s+=chip(1170,892,520,'El RIGI suma +U$S'+NB+nf(D.rigiInv[6])+NB+'M',C.sun,C.deep,26);
+  return svg(s,'Pantalla 3 de 3: el déficit con el ciudadano pasa de −U$S 4.000 M a +U$S 4.221 M',defs);
+}
+
+/* ---- armado y escala ---- */
+var R1={s0:d0,s1:d1,s2:d2,s3:d3,s4:d4,s5:d5,s6:d6};
+Object.keys(R1).forEach(function(id){document.getElementById(id).innerHTML=R1[id]()});
+function fit(){
+  Array.prototype.forEach.call(document.querySelectorAll('[data-f]'),function(f){
+    var st=f.querySelector('.stage'),sz=f.querySelector('.sizer'),w=f.clientWidth,k=Math.max(w/1920,.5);
+    st.style.transform='scale('+k+')';sz.style.width=(1920*k)+'px';sz.style.height=(960*k)+'px';
+  });
+}
+/* ?lamina=N (0 a 6) muestra solo esa lámina a tamaño real (1920 × 960), para capturas */
+var mm=/[?&]lamina=([0-6])/.exec(location.search);
+if(mm){var stg=document.getElementById('s'+mm[1]);document.body.innerHTML='';document.body.style.cssText='margin:0;width:1920px;height:960px;overflow:hidden';document.body.appendChild(stg);stg.style.cssText+=';position:relative;transform:none'}
+fit();window.addEventListener('resize',fit);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+</body>
+</html>

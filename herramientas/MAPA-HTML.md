@@ -1,0 +1,74 @@
+# Mapa de informe-scroll.html (3486 líneas) — se rehace con `python3 -I herramientas/lib/mapa_html.py scroll/informe-scroll.html > herramientas/MAPA-HTML.md`
+
+## Secciones del cuerpo (línea · etiqueta)
+- 1526 · <header class="bar gut" id=bar>
+- 1546 · <main class="" id=top>
+  - 1548 · «APERTURA»
+- 1549 · <section class="hero" labelledby=h1>
+  - 1560 · «PRIMERO: LO QUE ENCONTRAMOS, EN LOS TRES EJES»
+- 1563 · <section class="title-scrub mid">
+- 1570 · <section class="axis right mono mid">
+- 1629 · <section class="axis right mono mid">
+  - 1644 · «EL GIRO: CAMBIAMOS LAS REGLAS DEL JUEGO»
+- 1645 · <section class="giro" id=giro>
+  - 1698 · «DESPUÉS: LO QUE HICIMOS, EN LOS TRES EJES»
+- 1701 · <section class="title-scrub col mid">
+- 1708 · <section class="axis right mid">
+- 1814 · <header class="gz-head">
+- 1816 · <section class="gz-z">
+- 1828 · <section class="gz-z">
+- 1839 · <section class="gz-z">
+- 1871 · <section class="axis right mid">
+- 1906 · <section class="pasos hosp" labelledby=hosH>
+- 1945 · <section class="axis center dim">
+- 1985 · <section class="title-scrub col mid">
+- 1993 · <section class="axis center dim">
+- 2062 · <section class="axis left mid">
+- 2089 · <section class="axis right mid">
+- 2182 · <section class="axis center">
+- 2198 · <section class="axis right mid">
+- 2221 · <section class="axis center dim pv">
+- 2247 · <section class="pasos pvh" labelledby=pvhH>
+- 2261 · <section class="axis center">
+- 2277 · <section class="pasos hab tl" labelledby=tlH>
+- 2308 · <section class="axis center dim">
+- 2323 · <section class="pasos pasos-tit" labelledby=mcH>
+- 2336 · <section class="pasos" labelledby=psH>
+- 2343 · <header class="ps-head">
+- 2348 · <header class="ps-hd">
+- 2357 · <header class="ps-hd">
+- 2366 · <header class="ps-hd">
+- 2375 · <header class="ps-hd">
+- 2390 · <section class="closing rutas" labelledby=rtH>
+- 2395 · <header class="rt-head">
+- 2462 · <section class="axis left mid bright blk">
+- 2479 · <section class="axis left mid bright blk">
+- 2502 · <section class="nv" id=nv labelledby=nvH>
+- 2610 · <section class="pasos hosp us" labelledby=usiH>
+- 2653 · <section class="pasos hab" labelledby=habH>
+- 2688 · <section class="closing" labelledby=clH>
+- 2691 · <header class="cl-head">
+- 2736 · <section class="axis center dim">
+- 2752 · <section class="endcard placa p1">
+- 2757 · <section class="endcard placa p2">
+- 2767 · <section class="endcard">
+
+## Bloques de CSS / JS
+- 8 · <style>
+  - 31 · barra superior ---------- */…
+  - 43 · apertura ---------- */…
+  - 72 · título de capítulo ---------- */…
+  - 93 · foto fija + tarjetas que pasan ---------- */…
+  - 147 · tarjetas ---------- */…
+  - 581 · apertura de datos: cambiamos las reglas del juego ---------- */…
+  - 630 · Neuquén en el país ---------- */…
+  - 694 · video ---------- */…
+  - 713 · cierre: mosaico de fotos con número y texto ---------- */…
+  - 830 · Pasos internacionales: fondo en video, el título a la izquierda y cuatro bloques con la es…
+  - 1106 · Hub de Transporte y Terminal aérea (#37 y #38): la tarjeta crema pasa a bloque con la esté…
+  - 1142 · Neuquén vive (entre Rutas turísticas y Neuquén Habita) (v73): el logo, el título, las tres…
+  - 1257 · Plan vial · Obras en la ciudad (v74, en DOS tomas desde v75): la infografía del plan vial …
+  - 1294 · último slide: logos centrados sobre el azul de la marca ---------- */…
+  - 1320 · celular ---------- */…
+  - 1479 · pantallas anchas (desde 1800 px de ancho: 1920×1080, 2160×1080 y mayores; ahí se presenta …
+- 2775 · <script>
