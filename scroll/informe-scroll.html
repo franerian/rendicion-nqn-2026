@@ -167,6 +167,9 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
    De v43 a v76 iban con todos sus ceros (y antes con una palabra): #07 bajó de .num.m a .num.s y su bajada un escalón (.lbl.xxl → .lbl.xl) para que la cifra siguiera mandando, y en pantallas grandes (≥1360)
    la tarjeta subió de 560 a 620 (la medida de .card.light) porque ahí .num.s ya no entraba; en v77, con la «M», la cifra de #07 volvió a .num.m, la bajada se quedó en .xl y la tarjeta en 620; por debajo se queda en 560 para no acercarse al título del costado */
 @media (min-width:1360px){.card.deficit{width:min(620px,100%)}}
+/* v128 · #24: vuelve el dato de 2027 (35.000 nuevos neuquinos), ahora con el color normal de la tarjeta (no rojo), en un renglón propio debajo de los tres de 2025 y 2026 */
+.vm-new{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--hair)}
+.vm-new .lbl{margin:0}
 /* v124 · #06: «Deuda =» con su desglose (flotante heredada, contratos renegociados) y el total U$S 1.800 M; misma escala que .lbl.lg y .num.s */
 .dfx{margin-top:clamp(12px,1.4vw,20px)}
 .dfx>li{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
@@ -2377,6 +2380,7 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
           <div><p class="num s">4.000</p><p class="lbl">de ellos, niños en edad escolar</p></div>
           <div><p class="num s">+26.000</p><p class="lbl">nuevos habitantes radicados (proyección&nbsp;2026)</p></div>
         </div>
+        <div class="vm-new"><p class="num s">35.000</p><p class="lbl">nuevos neuquinos (proyección&nbsp;2027)</p></div>
         <div class="grid2" style="margin-top:22px;padding-top:22px;border-top:1px solid var(--hair)">
           <div><p class="num m">30.000</p><p class="lbl">nuevos neuquinos en total</p></div>
           <div><p class="num m">160</p><p class="lbl">aulas nuevas por año, solo para absorber la demanda</p></div>
