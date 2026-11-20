@@ -955,10 +955,12 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
 .gz .eb.gz-h{margin:0;font-size:clamp(14px,1.3vw,20px);letter-spacing:.1em;color:var(--dim)}
 .gz .pc-head{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:clamp(12px,2vw,32px);margin-bottom:clamp(10px,1.2vw,18px);padding-bottom:clamp(10px,1.1vw,16px)}
 .gz .pc-lead{text-align:right;max-width:24ch;text-wrap:balance}
-.gz-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.gz-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .gz-z{display:flex;flex-direction:column;min-width:0;padding:0 clamp(12px,1.5vw,22px)}
-.gz-z:first-child{padding-left:0}.gz-z:last-child{padding-right:0}
-.gz-z+.gz-z{border-left:1px solid var(--hair)}
+/* v164: grilla 2 × 2 (antes 3 columnas) */
+.gz-z:nth-child(odd){padding-left:0}.gz-z:nth-child(even){padding-right:0;border-left:1px solid var(--hair)}
+.gz-z:nth-child(n+3){margin-top:clamp(12px,1.4vw,20px);padding-top:clamp(12px,1.4vw,20px);border-top:1px solid var(--hair)}
+.gz-dh{margin-bottom:2px}
 .gz .eb{margin-bottom:2px;font-size:clamp(12px,1vw,16px);letter-spacing:.08em}
 .gz .lbl{margin-top:2px;max-width:none;font-size:clamp(14px,1.15vw,19px);line-height:1.2;font-weight:600}
 .gz .lbl.gz-sub{margin-top:0;margin-bottom:clamp(6px,.8vw,10px)}
@@ -972,7 +974,7 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
 .gz-d .num.s{margin-top:0;font-size:clamp(22px,2.1vw,32px)}
 .gz .say.gz-f{margin-top:auto;padding-top:clamp(8px,1vw,14px);font-size:clamp(15px,1.3vw,21px);line-height:1.2;font-weight:700}
 .gz-d+.say.gz-f{margin-top:clamp(8px,1vw,14px)}
-@media (max-width:1100px){.card.light.gz{width:100%}.gz-cols{grid-template-columns:1fr}.gz-z{padding:14px 0;border-left:0}.gz-z+.gz-z{border-top:1px solid var(--hair)}.gz .pc-head{flex-direction:column;align-items:flex-start}.gz .pc-lead{text-align:left;max-width:none}.gz .lbl{font-size:clamp(14px,3.8vw,17px)}.gz .eb{font-size:clamp(12px,3.2vw,14px)}.gz .num.m{font-size:clamp(40px,11vw,54px)}.gz .num.s,.gz-d .num.s{font-size:clamp(24px,6.6vw,32px)}.gz .say.gz-f{font-size:clamp(15px,4.2vw,18px)}.gz .chip{font-size:clamp(12.5px,3.4vw,15px)}}
+@media (max-width:1100px){.card.light.gz{width:100%}.gz-cols{grid-template-columns:1fr}.gz-z:nth-child(n){padding:14px 0;margin-top:0;border-left:0}.gz-z:nth-child(n+2){border-top:1px solid var(--hair)}.gz-z:first-child{border-top:0}.gz .pc-head{flex-direction:column;align-items:flex-start}.gz .pc-lead{text-align:left;max-width:none}.gz .lbl{font-size:clamp(14px,3.8vw,17px)}.gz .eb{font-size:clamp(12px,3.2vw,14px)}.gz .num.m{font-size:clamp(40px,11vw,54px)}.gz .num.s,.gz-d .num.s{font-size:clamp(24px,6.6vw,32px)}.gz .say.gz-f{font-size:clamp(15px,4.2vw,18px)}.gz .chip{font-size:clamp(12.5px,3.4vw,15px)}}
 /* v94 · Neuquén Habita en UNA pantalla (antes #48 y #49): la escala (--u) y el fondo de Pasos; a la izquierda la tarjeta crema (cifras, créditos y gráfico de los 345 días) y a la derecha el video en 16:9 con su epígrafe.
    Las medidas de la tarjeta usan la misma unidad --u que el resto de Pasos (con el piso en px para que no baje de lo legible). Sin escena fija: la parada crece con su contenido */
 .hab .stage::after{background:linear-gradient(180deg,rgba(3,24,32,.62) 0,rgba(3,24,32,.4) 30%,rgba(3,24,32,.46) 70%,rgba(3,24,32,.66) 100%),linear-gradient(90deg,rgba(3,24,32,.5),rgba(3,24,32,.3))}
@@ -1723,6 +1725,28 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
   .gz .chips{margin-top:12px;gap:8px}
   .gz .chip{padding:7px 13px;font-size:16px}
 }
+/* v164 · Plan Calor 2 × 2: desde 1280 px cada zona es una grilla (rótulo y subtítulo arriba; cifras a la izquierda, detalle a la derecha; frase al pie) para que las dos filas no hagan la tarjeta más alta que la pantalla */
+@media (min-width:1280px){
+  .gz-cols{column-gap:0}
+  .gz-z{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"eb eb" "sub sub" "k d" "say say";align-content:start;column-gap:26px}
+  .gz-z>.eb{grid-area:eb;min-height:0}
+  .gz-z>.gz-sub{grid-area:sub}
+  .gz-z>.gz-k{grid-area:k;min-width:0}
+  .gz-z>.gz-d{grid-area:d;min-width:0;margin-top:0;padding:0 0 0 24px;border-top:0;border-left:1px solid var(--hair)}
+  .gz-z>.say.gz-f{grid-area:say;margin-top:16px;padding-top:14px}
+  .gz-z:nth-child(odd){padding-left:0;padding-right:30px}
+  .gz-z:nth-child(even){padding-left:30px;padding-right:0}
+  .gz-z:nth-child(n+3){margin-top:18px;padding-top:18px}
+  .step .card.light.gz{padding:32px 44px}
+  .gz-head{margin-bottom:18px;padding-bottom:14px}
+  .gz-k>.num.m{margin-top:6px;font-size:60px}
+  .gz-k .chip{white-space:nowrap}
+  .gz-k>.num.s{margin-top:10px}
+  .gz-d .num.s{font-size:30px}
+  .gz-d .lbl{font-size:18px}
+  .gz-d>.gz-dh{margin-bottom:6px}
+  .gz-d>.gz-dh .eb{margin:0}
+}
 @media (min-width:1366px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--gwz:.67}}
 @media (min-width:1440px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--gwz:.71}}
 @media (min-width:1512px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--gwz:.75}}
@@ -1739,6 +1763,19 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
 @media (min-width:1280px) and (max-height:768px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--ghz:.84}}
 @media (min-width:1280px) and (max-height:720px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--ghz:.78}}
 @media (min-width:1280px) and (max-height:640px){.step .card.light.gz,.step .card.light.mor,.step .card.light.edu,.step .card.light.srv{--ghz:.68}}
+/* v164 · Plan Calor 2 × 2: la tarjeta mide ≈ 1033 px nominales de alto, así que el tope de zoom por alto es (alto − 115 px) / 1033 (se toma el borde inferior de cada tramo); el ancho sigue mandando con --gwz */
+@media (min-width:1280px) and (max-height:1300px){.step .card.light.gz{--ghz:1.05}}
+@media (min-width:1280px) and (max-height:1200px){.step .card.light.gz{--ghz:.95}}
+@media (min-width:1280px) and (max-height:1100px){.step .card.light.gz{--ghz:.9}}
+@media (min-width:1280px) and (max-height:1050px){.step .card.light.gz{--ghz:.85}}
+@media (min-width:1280px) and (max-height:1000px){.step .card.light.gz{--ghz:.8}}
+@media (min-width:1280px) and (max-height:950px){.step .card.light.gz{--ghz:.76}}
+@media (min-width:1280px) and (max-height:900px){.step .card.light.gz{--ghz:.71}}
+@media (min-width:1280px) and (max-height:850px){.step .card.light.gz{--ghz:.66}}
+@media (min-width:1280px) and (max-height:800px){.step .card.light.gz{--ghz:.63}}
+@media (min-width:1280px) and (max-height:768px){.step .card.light.gz{--ghz:.58}}
+@media (min-width:1280px) and (max-height:720px){.step .card.light.gz{--ghz:.5}}
+@media (min-width:1280px) and (max-height:640px){.step .card.light.gz{--ghz:.43}}
 /* v126 · Deuda moral, Deuda con la educación y Deuda con tus servicios (Agua y Eléctrica): mismo criterio que #14/#15 — medidas nominales y zoom = min(ancho, alto) con las mismas bandas (--gwz, --ghz); la multiplicación compensa el ancho/alto nominal de cada tarjeta; todo texto desde 20 px nominales */
 @media (min-width:1280px){
   .step .card.light.mor,.step .card.light.edu,.step .card.light.srv{max-width:none;margin-left:auto;padding:44px 52px}
@@ -2084,10 +2121,46 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
         <header class="gz-head"><span class="eb gz-h">Plan integral de gas para zonas rurales y cordilleranas</span></header>
         <div class="gz-cols">
           <section class="gz-z">
+            <span class="eb">Añelo · Gasoducto Meseta</span>
+            <p class="lbl gz-sub">Alianza con YPF</p>
+            <div class="gz-k">
+              <p class="num m">400.000<small>m³/d</small></p>
+              <div class="chips"><span class="chip">Etapa 1 ejecutada</span><span class="chip">Etapa 2 en marcha</span></div>
+            </div>
+            <ul class="gz-d">
+              <li><p class="num s">+200.000</p><p class="lbl">m³/d · etapa 1 ejecutada</p></li>
+              <li><p class="num s">×2</p><p class="lbl">Etapa 2 en marcha: llega a 400.000 m³/d</p></li>
+              <li><p class="num s">14 km</p><p class="lbl">de gasoductos nuevos en la meseta</p></li>
+            </ul>
+            <p class="say gz-f">Gas para los barrios y la industria del epicentro productivo</p>
+          </section>
+          <!-- v164 (a pedido): cuarta zona; Plan Calor pasa de 3 columnas a 2 × 2. v165 (a pedido): las filas se invierten: arriba Añelo y Norte Neuquino, abajo Refuerzo cordillerano y Rincón de los Sauces -->
+          <section class="gz-z">
+            <span class="eb">Plan Gas – Norte Neuquino</span>
+            <div class="gz-k">
+              <p class="num m">+91 km</p><p class="lbl">de cañerías de gas</p>
+              <p class="num s">4.000</p><p class="lbl">usuarios</p>
+              <p class="num s">+300</p><p class="lbl">nichos y servicios</p>
+              <p class="num s">97&nbsp;%</p><p class="lbl">de avance certificado</p>
+              <div class="chips"><span class="chip">Primera etapa · agosto 2026</span></div>
+            </div>
+            <ul class="gz-d">
+              <li class="gz-dh"><span class="eb">Infraestructura complementaria</span></li>
+              <li><p class="num s">+73 km</p><p class="lbl">de bitubo instalado</p></li>
+              <li><p class="num s">+67 km</p><p class="lbl">de fibra óptica tendida</p></li>
+              <li><p class="num s">54,5 km</p><p class="lbl">adicionales de infraestructura troncal de conectividad, previstos en la ampliación</p></li>
+              <li><p class="num s">4</p><p class="lbl">estaciones reguladoras de presión (ERP): tres finalizadas y una en ejecución</p></li>
+              <li><p class="num s">295.000</p><p class="lbl">horas de trabajo estimadas</p></li>
+            </ul>
+          </section>
+        
+          <section class="gz-z">
             <span class="eb">Refuerzo cordillerano y zapalino</span>
             <p class="lbl gz-sub">Camuzzi · TGS</p>
-            <p class="num m">+24.500</p><p class="lbl">hogares</p>
-            <p class="num s">U$S 90&nbsp;M</p><p class="lbl">de inversión</p>
+            <div class="gz-k">
+              <p class="num m">+24.500</p><p class="lbl">hogares</p>
+              <p class="num s">U$S 90&nbsp;M</p><p class="lbl">de inversión</p>
+            </div>
             <ul class="gz-d">
               <li><p class="num s">81 km</p><p class="lbl">Loops Camuzzi · 6 tramos (10" y 12")</p></li>
               <li><p class="num s">37 km</p><p class="lbl">Loops TGS · 3 tramos (12")</p></li>
@@ -2098,25 +2171,15 @@ h1,h2,h3,p,ul,ol,figure{margin:0}
           <section class="gz-z">
             <span class="eb">Rincón de los Sauces</span>
             <p class="lbl gz-sub">Dos horizontes</p>
-            <p class="num m">+15.000</p><p class="lbl">conexiones</p>
-            <p class="num s">U$S 130&nbsp;M</p><p class="lbl">de inversión</p>
+            <div class="gz-k">
+              <p class="num m">+15.000</p><p class="lbl">conexiones</p>
+              <p class="num s">U$S 130&nbsp;M</p><p class="lbl">de inversión</p>
+            </div>
             <ul class="gz-d">
               <li><p class="num s">+170.000</p><p class="lbl">m³/d · abr. 2027 · inversión privada en planta y transporte</p></li>
               <li><p class="num s">160 km</p><p class="lbl">Gasoducto · sep. 2027 · 600.000 m³/d</p></li>
             </ul>
             <p class="say gz-f">Gas seguro para una ciudad clave en permanente expansión</p>
-          </section>
-          <section class="gz-z">
-            <span class="eb">Añelo · Gasoducto Meseta</span>
-            <p class="lbl gz-sub">Alianza con YPF</p>
-            <p class="num m">400.000<small>m³/d</small></p>
-            <div class="chips"><span class="chip">Etapa 1 ejecutada</span><span class="chip">Etapa 2 en marcha</span></div>
-            <ul class="gz-d">
-              <li><p class="num s">+200.000</p><p class="lbl">m³/d · etapa 1 ejecutada</p></li>
-              <li><p class="num s">×2</p><p class="lbl">Etapa 2 en marcha: llega a 400.000 m³/d</p></li>
-              <li><p class="num s">14 km</p><p class="lbl">de gasoductos nuevos en la meseta</p></li>
-            </ul>
-            <p class="say gz-f">Gas para los barrios y la industria del epicentro productivo</p>
           </section>
         </div>
       </div></article>
